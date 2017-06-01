@@ -1,6 +1,7 @@
 applications:
   - name: balancer_ml
-    timeout: 180
-    no-routes: true
-    buildpack: python_buildpack
     command: python hello.py
+    buildpack: python_buildpack 
+    memory: 256M
+    stack: cflinuxfs2
+
