@@ -1,0 +1,17 @@
+applications:
+  - name: balancer_ml
+    memory: 128M
+    timeout: 180
+    no-routes: true
+    buildpack: python_buildpack
+    command: python hello.py --port=$PORT
+services:
+  - balancer-uaa
+env:
+    # node_env: cloud
+    uaa_service_label : predix-uaa
+    # Add these values for authentication in the cloud
+    base64ClientCredential: YmFsYW5jZXJfZnJvbnRlbmQ6YmFsYW5jZXJfZnJvbnRlbmQ=
+    loginBase64ClientCredential: YmFsYW5jZXJfZnJvbnRlbmQ6YmFsYW5jZXJfZnJvbnRlbmQ=
+    # Use a full wss:// URL for actual web socket server. use /livestream for mock data.
+  
