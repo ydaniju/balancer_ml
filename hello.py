@@ -39,7 +39,7 @@ import os
 
 app = Flask(__name__)
 
-port = int(os.getenv('PORT', '8080'))
+port = int(os.getenv('VCAP_APP_PORT', '8080'))
 
 @app.route('/')
 def hello_world():
