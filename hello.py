@@ -43,8 +43,16 @@ port = int(os.getenv('VCAP_APP_PORT', '8080'))
 
 @app.route('/')
 def hello_world():
-    result = {'result': reg_m(y, x).tolist()}
-    return jsonify(result)
+    result = reg_m(y, x).tolist()
+    hash = {
+        "windDirection": result[0],
+        "windSpeed": result[1],
+        "hydraulicOilTemp": result[2],
+        "ambientTemp": result[3],
+        "turbineStatus": result[4],
+        "expectedApparentPower": result[5]
+    }
+    return jsonify(hash)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
