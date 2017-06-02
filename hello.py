@@ -34,10 +34,11 @@ def reg_m(y, x):
 """Cloud Foundry test"""
 from flask import Flask
 from flask import jsonify
-
 import os
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+CORS(app)
 
 port = int(os.getenv('VCAP_APP_PORT', '8080'))
 

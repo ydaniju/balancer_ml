@@ -3,3 +3,4 @@ scipy
 Flask
 gunicorn
 statsmodels
+flask-cors
